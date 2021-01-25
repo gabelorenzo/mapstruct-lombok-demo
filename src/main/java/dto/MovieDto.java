@@ -1,9 +1,6 @@
 package dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import types.Language;
 import types.Rating;
 
@@ -11,12 +8,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+@Value
 public class MovieDto {
-    private UUID id;
     private String title;
     private LocalDate releaseDate;
     private BigDecimal budget;
@@ -24,6 +17,7 @@ public class MovieDto {
     private Rating rating;
     private Language[] supportedLanguages;
     private DirectorDto director;
+    private String country; //
     private int runtimeMinutes; // different name than entity
     private String runtime; // field doesn't exist in entity but can be derived
 }

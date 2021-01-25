@@ -16,5 +16,5 @@ public class DirectorEntity {
     private UUID id;
     private String firstName;
     private String lastName;
-    private LocalDate birthday;
+    private LocalDate dob;
 }

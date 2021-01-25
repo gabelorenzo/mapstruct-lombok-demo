@@ -1,11 +1,14 @@
 package mapper;
 
 import dto.MovieDto;
+import entity.AddressEntity;
 import entity.DirectorEntity;
 import entity.MovieEntity;
 import org.junit.Test;
+import types.Country;
 import types.Language;
 import types.Rating;
+import types.State;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -33,7 +36,14 @@ public class MovieMapperTest {
                         .id(UUID.fromString("8e11816a-5192-4234-82c7-fe67d6da3fd5"))
                         .firstName("Steven")
                         .lastName("Spielberg")
+                        .dob(LocalDate.of(1946, 12, 18))
                         .build()
+                )
+                .address(
+                        AddressEntity.builder()
+                                .state(State.CALIFORNIA)
+                                .country(Country.UNITED_STATES)
+                                .build()
                 )
                 .durationMinutes(124)
                 .build();
@@ -43,7 +53,6 @@ public class MovieMapperTest {
 
         // Test that the DTO was generated correctly
         assertNotNull(dto);
-        assertEquals(movieId, dto.getId());
         assertEquals("Jaws", dto.getTitle());
         assertEquals("Shark eat ppl?", dto.getSynopsis());
         assertEquals(LocalDate.of(1975, 6, 20), dto.getReleaseDate());
@@ -51,6 +60,10 @@ public class MovieMapperTest {
         assertEquals(Rating.PG, dto.getRating());
         assertArrayEquals(new Language[] { Language.ENGLISH, Language.FRENCH }, dto.getSupportedLanguages());
 
+        assertEquals("Steven", dto.getDirector().getFirstName());
+        assertEquals("Spielberg", dto.getDirector().getLastName());
+        assertEquals(LocalDate.of(1946, 12, 18), dto.getDirector().getBirthday());
+        assertEquals("United States", dto.getCountry());
         assertEquals(124, dto.getRuntimeMinutes());
     }
 

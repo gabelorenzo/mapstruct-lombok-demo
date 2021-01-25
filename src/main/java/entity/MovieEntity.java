@@ -24,5 +24,6 @@ public class MovieEntity {
     private Rating rating;
     private Language[] supportedLanguages;
     private DirectorEntity director;
+    private AddressEntity address;
     private int durationMinutes; //
 }
