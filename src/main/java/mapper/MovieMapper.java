@@ -13,5 +13,6 @@ public interface MovieMapper {
 
     @Mapping(source = "durationMinutes", target = "runtimeMinutes")
     @Mapping(source = "address.country.countryName", target = "country")
+    @Mapping(dateFormat=  "MM/dd/yyyy", target = "releaseDate")
     MovieDto entityToDto(MovieEntity entity);
 }

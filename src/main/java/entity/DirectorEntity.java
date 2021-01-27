@@ -1,9 +1,6 @@
 package entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -13,8 +10,11 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 public class DirectorEntity {
+    @NonNull
     private UUID id;
+    @NonNull
     private String firstName;
+    @NonNull
     private String lastName;
     private LocalDate dob;
 }

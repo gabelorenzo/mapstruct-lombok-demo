@@ -1,9 +1,6 @@
 package entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import types.Language;
 import types.Rating;
 
@@ -16,14 +13,17 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 public class MovieEntity {
+    // Fields below are similar to DTO fields - MapStruct can automatically map these
+    @NonNull
     private UUID id;
     private String title;
-    private LocalDate releaseDate;
     private BigDecimal budget;
     private String synopsis;
     private Rating rating;
     private Language[] supportedLanguages;
+    // Fields below will need to be mapped explicitly
     private DirectorEntity director;
+    private LocalDate releaseDate;
     private AddressEntity address;
-    private int durationMinutes; //
+    private int durationMinutes;
 }

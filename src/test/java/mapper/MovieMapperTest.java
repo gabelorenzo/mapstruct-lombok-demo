@@ -55,14 +55,12 @@ public class MovieMapperTest {
         assertNotNull(dto);
         assertEquals("Jaws", dto.getTitle());
         assertEquals("Shark eat ppl?", dto.getSynopsis());
-        assertEquals(LocalDate.of(1975, 6, 20), dto.getReleaseDate());
         assertEquals(BigDecimal.valueOf(7000000.00), dto.getBudget());
         assertEquals(Rating.PG, dto.getRating());
         assertArrayEquals(new Language[] { Language.ENGLISH, Language.FRENCH }, dto.getSupportedLanguages());
-
-        assertEquals("Steven", dto.getDirector().getFirstName());
-        assertEquals("Spielberg", dto.getDirector().getLastName());
+        assertEquals("Steven Spielberg", dto.getDirector().getFullName());
         assertEquals(LocalDate.of(1946, 12, 18), dto.getDirector().getBirthday());
+        assertEquals("06/20/1975", dto.getReleaseDate());
         assertEquals("United States", dto.getCountry());
         assertEquals(124, dto.getRuntimeMinutes());
     }
